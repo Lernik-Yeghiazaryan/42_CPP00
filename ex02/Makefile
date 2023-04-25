@@ -1,6 +1,5 @@
-NAME	= megaphone
+NAME	= account
 SRCS	= $(wildcard *.cpp)
-#OBJS	= $(SRCS:.cpp=.o)
 OBJS	= $(patsubst %.cpp, %.o, $(SRCS))
 CPP		= c++
 FLAGS	= -Wall -Wextra -Werror -std=c++98 -I.
@@ -10,7 +9,7 @@ RM		= rm -rf
 	$(CPP) $(FLAGS) -o $@ -c $<
 
 all : $(NAME)
-			
+
 $(NAME) : $(OBJS)
 	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 
@@ -22,4 +21,4 @@ fclean : clean
 
 re : fclean all
 
-.PHONY: all clean fclean re
+.PHONY : all clean fcelan re

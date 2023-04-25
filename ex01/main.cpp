@@ -5,13 +5,13 @@
 int main(void)
 {
 	PhoneBook book;
-	// Contact contact1("Vahe", "Sargsyan", "vasargsy", "098040038", "CatLover");
+	std::cout << "Input function name which you want to use\n";
 	while (1)
 	{
 		std::cout << ">: ";
 		std::string line;
 		std::getline(std::cin, line);
-		if (std::cin.eof())//???????
+		if (std::cin.eof())
 			break;
 		else if (line == "ADD")
 			book.ADD();
@@ -20,6 +20,5 @@ int main(void)
 		else if (line == "EXIT")
 			book.EXIT();
 	}
-
 	return 0;
 }

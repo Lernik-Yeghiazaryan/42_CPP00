@@ -1,17 +1,17 @@
 NAME	= phonebook
 SRCS	= $(wildcard *.cpp)
 OBJS	= $(patsubst %.cpp, %.o, $(SRCS))
-GPP		= g++
-FLAGS	= -Wall -Wextra -Werror -I.
+CPP		= c++
+FLAGS	= -Wall -Wextra -Werror -std=c++98 -I.
 RM		= rm -rf
 
-%.o : %.cpp
-	$(GPP) $(FLAGS) -o $@ -c $<
+%.o : %.cpp %.hpp
+	$(CPP) $(FLAGS) -o $@ -c $<
 
 all : $(NAME)
 
 $(NAME) : $(OBJS)
-	$(GPP) $(FLAGS) $(OBJS) -o $(NAME)
+	$(CPP) $(FLAGS) $(OBJS) -o $(NAME)
 
 clean :
 	$(RM) $(OBJS)

@@ -6,6 +6,7 @@ void PhoneBook::ADD()
 {
 	std::string line;
 	std::cout << "Adding new contact\n";
+	
 	std::cout << "First name >: ";
 	std::getline(std::cin, line);
 	if (line == "")
@@ -21,11 +22,23 @@ void PhoneBook::ADD()
 	if (line == "")
 		return;
 	contacts[ContactsCount].setNickName(line);
+	
+
+
+
 	std::cout << "Phone >: ";
-	std::getline(std::cin, line);
-	if (line == "")
-		return;
-	contacts[ContactsCount].setPhone(line);
+	while (1)
+	{
+		std::getline(std::cin, line);
+		if (line == "")
+			return;
+		else if ()
+		contacts[ContactsCount].setPhone(line);
+	}
+	
+	
+	
+	
 	std::cout << "Secret >: ";
 	std::getline(std::cin, line);
 	if (line == "")
@@ -38,6 +51,10 @@ void PhoneBook::ADD()
 
 void PhoneBook::SEARCH()
 {
+	for (size_t i = 0; i < ContactsCount; i++)
+	{
+		contacts[i].printContactInfo(i);
+	}
 	std::cout << "Search contact, write the contact's index\nIndex >: ";
 	std::string s;
 	getline(std::cin, s);
@@ -49,7 +66,10 @@ void PhoneBook::SEARCH()
 	else if (s >= "0" && s <= "7")
 	{
 		size_t num = std::atoi(s.c_str());
-		contacts[num].printContactInfo(num);
+		if (num < ContactsCount)
+			contacts[num].printContactInfo(num);
+		else
+			std::cout << "There's no contact with index " << num << std::endl;
 	}
 	else
 		std::cout << "Incorrect index\n";
@@ -59,4 +79,9 @@ void PhoneBook::SEARCH()
 void PhoneBook::EXIT()
 {
 	exit(0);
+}
+
+PhoneBook::PhoneBook()
+{
+	ContactsCount = 0;
 }

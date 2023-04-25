@@ -11,13 +11,10 @@ private:
 
 public:
 	void ADD();
-	void SEARCH();
+	void SEARCH(); 
 	void EXIT();
 
-	PhoneBook()
-	{
-		ContactsCount = 0;
-	}
+	PhoneBook();
 };
 
 #endif
